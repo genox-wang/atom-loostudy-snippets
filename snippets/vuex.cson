@@ -1,0 +1,65 @@
+'.source.js':
+  'vuex state':
+    'prefix': 'state'
+    'body': """
+    state: {
+      ${1:foo}: ${2:123}
+    },
+    """
+  'vuex mapState':
+    'prefix': 'mapState'
+    'body': """
+    ...mapState({
+      ${1:foo}: ${2:state} => ${2:state}.${1:foo}$0
+    })
+    """
+  'vuex getter':
+    'prefix': 'getter'
+    'body': """
+    ${1:foo}: (${2:state}, ${3:getters}, ${4:rootState}) => {
+      $5
+    }$0
+    """
+  'vuex mapGetters':
+    'prefix': 'mapGetters'
+    'body': """
+    ...mapGetters([
+      '${1:foo}'$0
+    ])
+    """
+  'vuex mutation':
+    'prefix': 'mutation'
+    'body': """
+    [$1] (${2:state}) {
+      $3
+    }
+    """
+  'vuex mapMutations':
+    'prefix': 'mapMutations'
+    'body': """
+    ...mapMutations([
+      '$1'
+    ])
+    """
+
+  'vuex action':
+    'prefix': 'action'
+    'body': """
+    ${1:foo}: ({
+      commit$2
+    }$3) => {
+       $4
+    },
+    """
+
+  'vuex this.$store.dispatch':
+    'prefix': 'dispatch$'
+    'body': """
+    this.$store.dispatch($1)$0
+    """
+
+  'vuex this.$store.commit':
+    'prefix': 'commit$'
+    'body': """
+    this.$store.commit($1)$0
+    """
