@@ -1,4 +1,5 @@
 '.source.js':
+
   'vuex state':
     'prefix': 'state'
     'body': """
@@ -6,20 +7,23 @@
       ${1:foo}: ${2:123}
     },
     """
+
   'vuex mapState':
     'prefix': 'mapState'
     'body': """
     ...mapState({
-      ${1:foo}: ${2:state} => ${2:state}.${1:foo}$0
+      ${1:foo}: ${2:state} => ${2:state}.$3${1:foo}$0
     })
     """
+
   'vuex getter':
     'prefix': 'getter'
     'body': """
     ${1:foo}: (${2:state}, ${3:getters}, ${4:rootState}) => {
       $5
-    }$0
+    }
     """
+
   'vuex mapGetters':
     'prefix': 'mapGetters'
     'body': """
@@ -27,6 +31,7 @@
       '${1:foo}'$0
     ])
     """
+
   'vuex mutation':
     'prefix': 'mutation'
     'body': """
@@ -34,6 +39,7 @@
       $3
     }
     """
+
   'vuex mapMutations':
     'prefix': 'mapMutations'
     'body': """
