@@ -1,0 +1,47 @@
+'.text.html.vue':
+  #v-data
+  'v-data':
+    'prefix':'v-data'
+    'body':"""
+    data () {
+      return {$1}
+    },$0
+    """
+  #v-computed:
+  'v-computed':
+    'prefix':'v-computed'
+    'body':"""
+    computed: {
+      ${1:key} () {
+        $2
+      }
+    },
+    """
+  #v-method:
+  'v-methods':
+    'prefix':'v-methods'
+    'body':"""
+    methods: {
+      ${1:method} ($2) {
+        $3
+      }
+    },
+    """
+  #v-watch:
+  'v-watch':
+    'prefix':'v-watch'
+    'body':"""
+    watch: {
+      ${1:key}: function (${2:to}, ${3:from}) {
+        $4
+      }
+    }
+    """
+
+  'v-mounted':
+    'prefix': 'mounted'
+    'body': """
+    mounted () {
+      $1
+    }
+    """

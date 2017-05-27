@@ -1,0 +1,79 @@
+'.php':
+  'Collection each':
+    'prefix': 'each'
+    'body': """
+    each($1);
+    """
+  'Closure function':
+    'prefix': 'afn'
+    'body': """
+    function ($1)${2: use($3)} {
+      $4
+    }
+    """
+
+  # seed
+  'Faker\\Factory':
+    'prefix': 'faker'
+    'body': """
+    $faker = Faker\\Factory::create();
+    """
+
+  'Factory make':
+    'prefix': 'factorym'
+    'body': """
+    factory($1::class)${2:->times($3)}->make()$0
+    """
+  'Factory create':
+    'prefix': 'factoryc'
+    'body': """
+    factory($1::class)${2:->times($3)}->create()$0
+    """
+
+  # models
+  'fillable':
+    'prefix': 'fillable'
+    'body': 'protected $fillable = [$1];'
+  'guarded':
+    'prefix': 'guarded'
+    'body': 'protected $guarded = [$1];'
+  'hidden':
+    'prefix': 'hidden'
+    'body': 'protected $hidden = [$1];'
+
+  # Belongs to many
+  'Eloquent Belongs-to-many':
+    'prefix': 'belm'
+    'body': """
+    public function ${1:relationship}()
+    {
+      return $this->belongsToMany($1::class, ${2:table});
+    }
+    """
+  # Belongs to
+  'Eloquent Belongs to':
+    'prefix': 'belo'
+    'body': """
+    public function ${1:relationship}()
+    {
+      return $this->belongsTo($1::class);
+    }
+    """
+  # Has many
+  'Eloquent Has many':
+    'prefix': 'hasm'
+    'body': """
+    public function ${1:relationship}()
+    {
+      return $this->hasMany($1::class);
+    }
+    """
+  # Has one
+  'Eloquent Has one':
+    'prefix': 'haso'
+    'body': """
+    public function ${1:relationship}()
+    {
+      return $this->hasOne($1::class);
+    }
+    """

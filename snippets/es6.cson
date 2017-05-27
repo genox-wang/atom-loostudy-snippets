@@ -1,0 +1,190 @@
+'.source.js':
+  'console.error':
+    'prefix': 'error'
+    'body': 'console.error($1)'
+
+  'console.log':
+    'prefix': 'log'
+    'body': 'console.log($1)'
+
+  'foo () {}':
+    'prefix': 'funk'
+    'body': """
+    ${1:foo} ($2) {
+      $3
+    },
+    """
+
+  'function () {}':
+    'prefix': 'afn'
+    'body': """
+    function ($1) {
+      $2
+    }
+    """
+
+  'function methodName() {}':
+    'prefix': 'fun'
+    'body': """
+    function ${1:methodName} ($2) {
+      $3
+    }
+    """
+
+  'import from ':
+    'prefix': 'importd'
+    'body': """
+    import $1 from '$2'
+    """
+
+  'import as from':
+    'prefix': 'importas'
+    'body': """
+    import ${1:*} as $2 from '$3'
+    """
+
+  'import {} from':
+    'prefix': 'importarr'
+    'body': """
+    import {
+      ${1:foo}
+    } from '$2'
+    """
+
+  'export default':
+    'prefix': 'expd'
+    'body': """
+    export default
+    """
+
+  'export from':
+    'prefix': 'expf'
+    'body': """
+    export { $1 } from '$2'
+    """
+
+  'async function':
+    'prefix': 'async fun'
+    'body': """
+    async function ${1: methodName}(){
+      await ${2:promise()}
+    }
+    """
+
+  'new Promise':
+    'prefix': 'prom'
+    'body': """
+    new Promise((${1:resolve}, ${2:reject}) => {
+      $3
+    })
+    """
+
+  'Promise.all':
+    'prefix': 'promall'
+    'body': """
+    Promise.all([
+      ${1:p}
+    ])
+    """
+
+  'Promise.race':
+    'prefix': 'promrace'
+    'body': """
+    Promise.race([
+      ${1:p}
+    ])
+    """
+
+  'then':
+    'prefix': 'then'
+    'body': """
+    then(${1:r} => {
+      $2
+    })
+    """
+
+  'catch':
+    'prefix': 'catch'
+    'body': """
+    catch(${1:e} => {
+      $2
+    })
+    """
+
+  'Object.is':
+    'prefix': 'objis'
+    'body': """
+    Object.is($1, $2)
+    """
+
+  'Object.assign':
+    'prefix': 'objasg'
+    'body': """
+    Object.assign($1, $2)
+    """
+
+  'Reflect.get':
+    'prefix': 'rget'
+    'body': """
+    Reflect.get(${1:target}, ${2:key}, ${3:receiver})
+    """
+
+  'Reflect.set':
+    'prefix': 'rset'
+    'body': """
+    Reflect.set(${1:target}, ${2:key}, ${3:value}, ${4:receiver})
+    """
+
+  'Reflect.has':
+    'prefix': 'rhas'
+    'body': """
+    Reflect.has(${1:obj}, ${2:name})
+    """
+
+  'Reflect.deleteProperty':
+    'prefix': 'rdelp'
+    'body': """
+    Reflect.deleteProperty(${1:target}, ${2:key})
+    """
+
+  'Reflect.defineProperty':
+    'prefix': 'rdp'
+    'body': """
+    Reflect.defineProperty(${1:target}, ${2:key}, ${3:value})
+    """
+
+  'Reflect.constructor':
+    'prefix': 'rcstr'
+    'body': """
+    Reflect.constructor(${1:target}, ${2:args})
+    """
+
+  'Reflect.getPrototypeOf':
+    'prefix': 'rgetproto'
+    'body': """
+    Reflect.getPrototypeOf(${1:target})
+    """
+
+  'Reflect.setProtoType':
+    'prefix': 'rsetproto'
+    'body': """
+    Reflect.setProtoType(${1:target}, ${2: newProto})
+    """
+
+  'Reflect.apply':
+    'prefix': 'rapply'
+    'body': """
+    Reflect.apply(${1:func}, ${2:thisArg}, ${3:args})
+    """
+
+  'Reflect.getOwnPropertyDescriptor':
+    'prefix': 'rgetdes'
+    'body': """
+    Reflect.getOwnPropertyDescriptor(${1:target}, ${2:key})
+    """
+
+  'Reflect.ownKeys':
+    'prefix': 'rkeys'
+    'body': """
+    Reflect.ownKeys(${1:target})
+    """
